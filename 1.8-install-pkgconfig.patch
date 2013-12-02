@@ -1,0 +1,22 @@
+--- origsrc/taglib-1.8/CMakeLists.txt	2012-09-06 13:03:15.000000000 -0500
++++ src/taglib-1.8/CMakeLists.txt	2013-11-20 04:01:17.471660400 -0600
+@@ -69,7 +69,7 @@ include(ConfigureChecks.cmake)
+ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/taglib-config.cmake ${CMAKE_CURRENT_BINARY_DIR}/taglib-config )
+ install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/taglib-config DESTINATION ${BIN_INSTALL_DIR})
+ 
+-if(NOT WIN32 AND NOT BUILD_FRAMEWORK)
++if(NOT BUILD_FRAMEWORK)
+   configure_file(${CMAKE_CURRENT_SOURCE_DIR}/taglib.pc.cmake ${CMAKE_CURRENT_BINARY_DIR}/taglib.pc )
+   install(FILES ${CMAKE_CURRENT_BINARY_DIR}/taglib.pc DESTINATION ${LIB_INSTALL_DIR}/pkgconfig)
+ endif()
+--- origsrc/taglib-1.8/bindings/c/CMakeLists.txt	2012-09-06 13:03:15.000000000 -0500
++++ src/taglib-1.8/bindings/c/CMakeLists.txt	2013-11-20 04:05:36.985503700 -0600
+@@ -61,7 +61,7 @@ install(TARGETS tag_c
+ 	PUBLIC_HEADER DESTINATION ${INCLUDE_INSTALL_DIR}/taglib
+ )
+ 
+-if(NOT WIN32 AND NOT BUILD_FRAMEWORK)
++if(NOT BUILD_FRAMEWORK)
+ 	configure_file(${CMAKE_CURRENT_SOURCE_DIR}/taglib_c.pc.cmake ${CMAKE_CURRENT_BINARY_DIR}/taglib_c.pc)
+ 	install(FILES ${CMAKE_CURRENT_BINARY_DIR}/taglib_c.pc DESTINATION ${LIB_INSTALL_DIR}/pkgconfig)
+ endif()
