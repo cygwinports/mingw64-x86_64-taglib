@@ -2,7 +2,7 @@ CROSS_HOST="x86_64-w64-mingw32"
 inherit cross cmake
 
 NAME="mingw64-x86_64-taglib"
-VERSION=1.9.1
+VERSION=1.11.1
 RELEASE=1
 CATEGORY="Devel"
 SUMMARY="Audio metadata library for Win64 toolchain"
@@ -13,13 +13,7 @@ MPC, Speex, WavPack TrueAudio, WAV, AIFF, MP4 and ASF files."
 HOMEPAGE="http://developer.kde.org/~wheeler/taglib.html"
 SRC_URI="https://github.com/downloads/taglib/taglib/taglib-${VERSION}.tar.gz"
 SRC_DIR="taglib-${VERSION}"
-PATCH_URI="
-	http://pkgs.fedoraproject.org/cgit/taglib.git/plain/0002-Fixed-ABI-breakage-in-TagLib-String.patch
-	http://pkgs.fedoraproject.org/cgit/taglib.git/plain/0003-Rewrote-ByteVector-replace-simpler.patch
-	http://pkgs.fedoraproject.org/cgit/taglib.git/plain/0001-Fixed-a-wrong-byte-order-handling-on-big-endian-mach.patch
-	http://pkgs.fedoraproject.org/cgit/taglib.git/plain/0001-Added-some-missing-deletes-to-test_flac.cpp.patch
-	1.8-install-pkgconfig.patch
-"
+PATCH_URI="1.11.1-install-config.patch"
 
 DIFF_EXCLUDES="Doxyfile"
-CYGCMAKE_ARGS="-DWITH_ASF=ON -DWITH_MP4=ON"
+CYGCMAKE_ARGS="-DBUILD_SHARED_LIBS=ON"

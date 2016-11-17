@@ -1,0 +1,17 @@
+--- origsrc/taglib-1.11.1/CMakeLists.txt	2016-10-23 22:03:23.000000000 -0500
++++ src/taglib-1.11.1/CMakeLists.txt	2016-11-17 03:06:18.578994200 -0600
+@@ -100,12 +100,12 @@ math(EXPR TAGLIB_SOVERSION_PATCH "${TAGL
+ 
+ include(ConfigureChecks.cmake)
+ 
+-if(NOT WIN32)
++if(NOT MSVC)
+   configure_file("${CMAKE_CURRENT_SOURCE_DIR}/taglib-config.cmake" "${CMAKE_CURRENT_BINARY_DIR}/taglib-config")
+   install(PROGRAMS "${CMAKE_CURRENT_BINARY_DIR}/taglib-config" DESTINATION "${BIN_INSTALL_DIR}")
+ endif()
+ 
+-if(WIN32)
++if(MSVC)
+   configure_file("${CMAKE_CURRENT_SOURCE_DIR}/taglib-config.cmd.cmake" "${CMAKE_CURRENT_BINARY_DIR}/taglib-config.cmd")
+   install(PROGRAMS "${CMAKE_CURRENT_BINARY_DIR}/taglib-config.cmd" DESTINATION "${BIN_INSTALL_DIR}")
+ endif()
